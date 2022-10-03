@@ -3,8 +3,29 @@
 
     {% block content %}
     <!-- body -->
-    <div class="container mt-3">
-      <div class="row mx-auto">
+
+
+
+    <div class="container-fluid mt-3">
+      <div class="row">
+<!--         filters-->
+          <div class="col-lg-3 mx-auto">
+          <div class="list-group">
+                            <a href="/" class="list-group-item">
+        All Products
+</a>
+              {% for category in categories %}
+              <a href="/?category={{category.id}}" class="list-group-item">
+            {{category.name}}
+</a>
+              {% endfor %}
+
+          </div>
+          </div>
+
+<!--          products-->
+          <div id="products" class="col-lg-8 mx-auto">
+              <div class="row mx-auto">
         {% for product in products %}
 
         <div class="card mx-3 mb-3" style="width: 18rem">
@@ -18,5 +39,8 @@
         </div>
         {% endfor %}
       </div>
+          </div>
+      </div>
+
     </div>
     {% endblock %}
